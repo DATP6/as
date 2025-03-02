@@ -8,9 +8,9 @@ Specify:
 • What propositions (variables) you use to model the problem.
 	SAT_X: Person X is in group SAT 
 	ALGO_X: Person X is in group AGLO 
-	with SAT_X not equal to ALGO_X - either a person is in one group or not!
+	with SAT_X not equal to ALGO_X - either a person is in one group or not! (note that this leaves room for adding more groups -  we could get away with just one variable for two groups)
 
-1) SAT_A AND SAT_C 
+1) (SAT_A AND SAT_C) or (AGLO_A AND ALGO_C)
 2) (NOT SAT_D) AND (SAT_E)
 3) forall i,j in people_i groups_j(sum(groups_j_i)>2) (e.g. sum(ALGO_A + ALGO_B + ...))
 4) ALGO_B
