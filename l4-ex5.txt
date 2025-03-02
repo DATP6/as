@@ -1,0 +1,34 @@
+INFORMATION:
+	People: ABCDE 
+	Groups: AGLO, SAT
+
+For convenience, you are allowed to use forall and exist with the following syntax: forall i,j in A,B
+Specify:
+
+• What propositions (variables) you use to model the problem.
+	SAT_X: Person X is in group SAT 
+	ALGO_X: Person X is in group AGLO 
+	with SAT_X not equal to ALGO_X - either a person is in one group or not! (note that this leaves room for adding more groups -  we could get away with just one variable for two groups)
+
+1) (SAT_A AND SAT_C) or (AGLO_A AND ALGO_C)
+2) (NOT SAT_D) AND (SAT_E)
+3) forall i,j in people_i groups_j(sum(groups_j_i)>2) (e.g. sum(ALGO_A + ALGO_B + ...))
+4) ALGO_B
+5) SAT_E
+• What the formula is.
+(SAT_A AND SAT_C) 
+AND 
+(NOT SAT_D) AND (SAT_E)
+AND 
+forall i,j in people_i groups_j(sum(groups_j_i)>2) (e.g. sum(ALGO_A + ALGO_B + ...))
+AND 
+ALGO_B
+AND 
+SAT_E
+
+• How to find out how to form the groups given an assignment.
+Step 1: Pass formula to SAT-solver and observe result of variable assignment
+Step 2: If ALGO_X = 1, place student X in ALGO group - similarly for SAT_X. 
+
+• How to expand solution to other students
+Simply add two new boolean vars for each student ALGO_X, SAT_X - constraints approrpriate to each student can be formed with this
