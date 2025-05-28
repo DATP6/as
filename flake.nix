@@ -13,6 +13,7 @@
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             z3
+            fast-downward
             (python3.withPackages(python-pkgs: [
               python-pkgs.z3-solver
             ]))
